@@ -26,7 +26,8 @@ The **Pet Care Assistant** is a mobile application designed to simplify and enha
 
 ---
 
-## Installation
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/yourusername/pet-care-assistant.git
+## Contributors
+G.K.A.R.S. Lakbima
+U.C.K. Srimali
+Deelaka Senal
+
