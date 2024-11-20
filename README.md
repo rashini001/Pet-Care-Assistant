@@ -1,6 +1,7 @@
 # Pet Care Assistant
-Pet Care Assistant
+
 Overview
+
 The Pet Care Assistant is a comprehensive mobile application designed to simplify and enhance pet care routines. This app provides features like feeding and medication reminders, health monitoring, emergency alerts, nearby pet services locator, and much more to cater to the needs of modern pet owners. With a user-friendly interface and robust functionality, this app helps users ensure their pets receive the best care.
 
 Features
@@ -30,7 +31,7 @@ Features
 * Capture photos and videos of your pet.
 * Use "Pet Selfie" mode to grab your pet's attention with playful sounds.
 9. Virtual Pet Diary
-* Keep a daily log of your pet’s activities with notes, photos, and videos.
+* Keep a daily log of your petâ€™s activities with notes, photos, and videos.
 
 Technologies Used
 * Programming Language: Java
