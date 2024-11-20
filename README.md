@@ -27,7 +27,7 @@ The **Pet Care Assistant** is a mobile application designed to simplify and enha
 ---
 
 ## Contributors
-G.K.A.R.S. Lakbima
-U.C.K. Srimali
-Deelaka Senal
+- G.K.A.R.S. Lakbima
+- U.C.K. Srimali
+- Deelaka Senal
 
