@@ -1,0 +1,104 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp"
+    android:background="@drawable/diary"
+    tools:context=".Diary">
+
+    <!-- Diary Title -->
+    <TextView
+        android:id="@+id/diary_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Virtual Pet Diary"
+        android:fontFamily="@font/baloo_bhai"
+        android:textSize="35sp"
+        android:textStyle="bold|italic"
+        android:textColor="@color/purple_500"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:shadowColor="#888"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="3" />
+
+    <!-- Diary Entries Input -->
+    <EditText
+        android:id="@+id/diary_entry_input"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/diary_title"
+        android:layout_marginTop="16dp"
+        android:hint="Write about your pet's activities..."
+        android:background="@android:drawable/edit_text"
+        android:padding="12dp"
+        android:gravity="top"
+        android:textSize="14sp"
+        android:textColor="@android:color/black" />
+
+    <!-- Add Diary Entry Button -->
+    <Button
+        android:id="@+id/add_diary_entry_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Diary Entry"
+        android:textSize="16sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/diary_entry_input"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/material_dynamic_primary10"
+        android:textColor="@android:color/white" />
+
+    <!-- Photo and Video Section -->
+    <LinearLayout
+        android:id="@+id/photo_video_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/add_diary_entry_btn"
+        android:layout_marginTop="16dp"
+        android:gravity="center">
+
+        <!-- Add Photo Button -->
+        <Button
+            android:id="@+id/add_photo_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Photo"
+            android:textSize="14sp"
+            android:backgroundTint="@color/material_dynamic_primary10"
+            android:textColor="@android:color/white" />
+
+        <!-- Add Video Button -->
+        <Button
+            android:id="@+id/add_video_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Video"
+            android:textSize="14sp"
+            android:layout_marginLeft="16dp"
+            android:backgroundTint="@color/material_dynamic_primary10"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+    <!-- Logs Section -->
+    <TextView
+        android:id="@+id/log_display"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Recent Logs"
+        android:textSize="18sp"
+        android:textColor="@color/purple_500"
+        android:layout_below="@id/photo_video_section"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold" />
+
+    <!-- Logs RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/logs_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/log_display"
+        android:paddingTop="10dp" />
+</RelativeLayout>

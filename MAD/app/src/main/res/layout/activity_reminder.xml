@@ -1,0 +1,97 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/feeding"
+    tools:context=".Reminder">
+
+    <!-- Subheading for Customizable Alarms -->
+    <TextView
+        android:id="@+id/alarms_section_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Feeding Medication Reminder"
+        android:fontFamily="@font/baloo_bhai"
+        android:textSize="30sp"
+        android:textStyle="bold|italic"
+        android:textColor="@color/purple_500"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:shadowColor="#888"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="3"/>
+
+    <!-- ListView for Displaying Alarm Tasks -->
+    <ListView
+        android:id="@+id/health_log_list"
+        android:layout_width="match_parent"
+        android:layout_height="450sp"
+        android:layout_below="@id/alarms_section_title"
+        android:layout_marginTop="11dp"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp" />
+
+    <!-- Add New Alarm Button -->
+    <Button
+        android:id="@+id/add_health_log_btn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Set Alarm"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/health_log_list"
+        android:layout_marginTop="35dp"
+        android:backgroundTint="@color/purple_500"
+        android:textColor="@android:color/white"
+        android:elevation="9dp"
+        android:paddingStart="16dp" />
+
+    <!-- Task Confirmation Buttons -->
+    <LinearLayout
+        android:id="@+id/confirmation_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_below="@id/add_health_log_btn"
+        android:layout_marginTop="20dp">
+
+        <Button
+            android:id="@+id/confirm_task_btn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Confirm"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@android:color/white"
+            android:elevation="8dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_margin="8dp" />
+
+        <Button
+            android:id="@+id/snooze_task_btn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Snooze"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/purple_500"
+            android:elevation="9dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp" />
+    </LinearLayout>
+
+    <!-- Notification Status -->
+    <TextView
+        android:id="@+id/notifications_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/confirmation_section"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="Task Completed!"
+        android:textColor="#27AE60"
+        android:textSize="16sp"
+        android:visibility="gone" />
+</RelativeLayout>

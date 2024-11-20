@@ -1,0 +1,73 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/dashboard"
+    tools:context=".Monitor">
+
+    <TextView
+        android:id="@+id/camera_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Monitor Your Pet"
+        android:fontFamily="@font/baloo_bhai"
+        android:textSize="45sp"
+        android:textStyle="bold|italic"
+        android:textColor="@color/purple_500"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:shadowColor="#888"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="3" />
+
+    <!-- Camera Preview -->
+    <SurfaceView
+        android:id="@+id/camera_preview"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@id/camera_title"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/rounded_border" />
+
+    <!-- Capture Photo Button -->
+    <Button
+        android:id="@+id/capture_photo_btn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Capture Photo"
+        android:layout_below="@id/camera_preview"
+        android:layout_marginTop="24dp"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/purple_500"
+        android:textColor="@android:color/white"
+        android:elevation="6dp"
+        android:drawableLeft="@drawable/ic_camera"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp" />
+
+    <!-- Decorative ImageView for Captured Image -->
+    <ImageView
+        android:id="@+id/captured_image_view"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:layout_below="@id/capture_photo_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:scaleType="centerCrop"
+        android:background="@drawable/rounded_border" />
+
+    <!-- Selfie Mode Button -->
+    <Button
+        android:id="@+id/pet_selfie_mode_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pet Selfie Mode"
+        android:layout_below="@id/captured_image_view"
+        android:layout_marginTop="5dp"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/purple_500"
+        android:textColor="@android:color/white"
+        android:elevation="6dp" />
+</RelativeLayout>
