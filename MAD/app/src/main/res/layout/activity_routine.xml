@@ -1,6 +1,110 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp"
+    android:background="@drawable/routine"
+    tools:context=".Routine">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Title TextView -->
+    <TextView
+        android:id="@+id/fitness_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pet Fitness Goals"
+        android:fontFamily="@font/baloo_bhai"
+        android:textSize="45sp"
+        android:textStyle="bold|italic"
+        android:textColor="@color/purple_500"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:shadowColor="#888"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="3" />
+
+    <!-- Breed Selection Spinner -->
+    <Spinner
+        android:id="@+id/pet_breed_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fitness_title"
+        android:layout_marginTop="20dp"
+        android:entries="@array/breed_array"/>
+
+    <!-- Age Selection Spinner -->
+    <Spinner
+        android:id="@+id/pet_age_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pet_breed_spinner"
+        android:layout_marginTop="10dp"
+        android:entries="@array/age_array"/>
+
+    <!-- Health Conditions Dropdown -->
+    <Spinner
+        android:id="@+id/pet_health_conditions_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pet_age_spinner"
+        android:layout_marginTop="10dp"
+        android:entries="@array/health_conditions_array"/>
+
+    <!-- Suggested Exercise Title -->
+    <TextView
+        android:id="@+id/exercise_suggestion_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Suggested Exercise Routine"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_below="@id/pet_health_conditions_spinner"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/darkBrown"/>
+
+    <!-- Exercise Suggestions TextView -->
+    <TextView
+        android:id="@+id/exercise_suggestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fetch, Agility Training, or Short Walks"
+        android:textSize="16sp"
+        android:layout_below="@id/exercise_suggestion_title"
+        android:layout_marginTop="10dp"
+        android:textColor="#616161"/>
+
+    <!-- Timer Button -->
+    <Button
+        android:id="@+id/start_timer_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Exercise Timer"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/exercise_suggestion"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/purple_500"
+        android:textColor="#FFFFFF" />
+
+    <!-- Fitness Goals ListView -->
+    <ListView
+        android:id="@+id/fitness_goals_list"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_below="@id/start_timer_btn"
+        android:layout_marginTop="20dp" />
+
+    <!-- Add Fitness Goal Button -->
+    <Button
+        android:id="@+id/add_fitness_goal_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Fitness Goal"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/fitness_goals_list"
+        android:layout_marginTop="20dp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="@color/purple_500"/>
+
+
+</RelativeLayout>

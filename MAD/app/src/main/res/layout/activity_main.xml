@@ -1,52 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:id="@+id/main"
+    android:background="@color/brown">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:contentDescription="@string/app_name"
-        android:src="@drawable/welcome" />
+    <!-- Logo or title -->
     <TextView
-        android:id="@+id/centerText"
+        android:id="@+id/appTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_marginTop="55dp"
+        android:layout_centerHorizontal="true"
         android:text="WOOF"
-        android:textSize="80sp"
+        android:textSize="55sp"
+        android:fontFamily="@font/baloo_bhai"
         android:textStyle="bold|italic"
-        android:textColor="#653121"
+        android:textColor="@color/purple_500"
         android:shadowColor="#888"
         android:shadowDx="2"
         android:shadowDy="2"
         android:shadowRadius="3"
-        />
+        android:layout_marginBottom="10dp" />
+
+    <!-- Circular image with a frame -->
+    <RelativeLayout
+        android:id="@+id/imageFrame"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/appTitle"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/circle_frame">
+
+        <ImageView
+            android:id="@+id/petImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/welocme"
+            android:scaleType="centerCrop"
+            android:clipToOutline="true" />
+    </RelativeLayout>
+
+    <!-- Subtitle -->
     <TextView
-        android:id="@+id/centerText1"
+        android:id="@+id/subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_below="@id/centerText"
-        android:text="For Animal Lovers..."
-        android:textSize="40sp"
+        android:layout_below="@id/imageFrame"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="TAKE A LOOK AT YOUR PET"
+        android:textSize="30sp"
         android:textStyle="bold|italic"
-        android:textColor="#9f4d34" />
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/darkBrown" />
 
-    <!-- Button below the TextView -->
+    <!-- Description -->
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/subtitle"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:text="Caring for your pets has never been easier! Whether you're a new pet parent or a seasoned owner, WOOF is here to make your pet care journey simple, organized, and fun. We’re committed to helping you give your furry friends the happy, healthy life they deserve. 🐶🐱❤️"
+        android:textSize="18sp"
+        android:fontFamily="@font/baloo_bhai"
+        android:lineSpacingExtra="4dp"
+        android:textAlignment="center"
+        android:textColor="@color/black" />
+
+    <!-- Get Started button -->
     <Button
         android:id="@+id/centerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/centerText1"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/description"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="30dp"
         android:text="Get Started"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         android:backgroundTint="@color/purple_500"
-        android:textColor="#FFFFFF" />
+        android:textStyle="bold"/>
 
 </RelativeLayout>

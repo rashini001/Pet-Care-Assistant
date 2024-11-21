@@ -1,102 +1,127 @@
 package com.example.mad;
 
-import android.content.Intent;
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mad.adapter.HealthLogAdapter;
-import com.example.mad.db.DBHelper;
-import com.example.mad.models.HealthLog;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Calendar;
 
 public class ActivityTracking extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
-    private HealthLogAdapter adapter;
-    private List<HealthLog> healthLogs;
-
-    private Button addHealthLogBtn, saveHealthLogBtn, generateReportBtn;
-    private EditText logActivityName, logDate, logNotes;
-    private DBHelper dbHelper;
+    private CheckBox checkWalks, checkFeeding, checkVetVisit, checkMedications;
+    private EditText inputWeight, inputVaccinationDate, inputHealthIssues;
+    private Button saveManualDataBtn, generateReportBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tracking);
 
-        dbHelper = new DBHelper(this);
-        healthLogs = dbHelper.getAllLogs();
+        // Initialize views
+        checkWalks = findViewById(R.id.check_walks);
+        checkFeeding = findViewById(R.id.check_feeding);
+        checkVetVisit = findViewById(R.id.check_vet_visit);
+        checkMedications = findViewById(R.id.check_medications);
 
-        recyclerView = findViewById(R.id.health_log_recycler);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new HealthLogAdapter(healthLogs);
-        recyclerView.setAdapter(adapter);
+        inputWeight = findViewById(R.id.input_weight);
+        inputVaccinationDate = findViewById(R.id.input_vaccination_date);
+        inputHealthIssues = findViewById(R.id.input_health_issues);
 
-        logActivityName = findViewById(R.id.log_activity_name);
-        logDate = findViewById(R.id.log_date);
-        logNotes = findViewById(R.id.log_notes);
-        addHealthLogBtn = findViewById(R.id.add_health_log_btn);
-        saveHealthLogBtn = findViewById(R.id.save_health_log_btn);
+        saveManualDataBtn = findViewById(R.id.save_manual_data_btn);
         generateReportBtn = findViewById(R.id.generate_report_btn);
 
-        // Add new health log
-        addHealthLogBtn.setOnClickListener(v -> {
-            logActivityName.setVisibility(View.VISIBLE);
-            logDate.setVisibility(View.VISIBLE);
-            logNotes.setVisibility(View.VISIBLE);
-            saveHealthLogBtn.setVisibility(View.VISIBLE);
+        // Set up DatePicker for vaccination date
+        inputVaccinationDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDatePicker();
+            }
         });
 
-        // Save health log to database
-        saveHealthLogBtn.setOnClickListener(v -> saveHealthLog());
+        // Save manual data
+        saveManualDataBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveManualData();
+            }
+        });
 
         // Generate health report
-        generateReportBtn.setOnClickListener(v -> generateHealthReport());
+        generateReportBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                generateHealthReport();
+            }
+        });
     }
 
-    private void saveHealthLog() {
-        String activityName = logActivityName.getText().toString();
-        String date = logDate.getText().toString();
-        String notes = logNotes.getText().toString();
+    private void showDatePicker() {
+        final Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
 
-        if (activityName.isEmpty() || date.isEmpty()) {
-            Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        inputVaccinationDate.setText(String.format("%04d-%02d-%02d", year, month + 1, dayOfMonth));
+                    }
+                }, year, month, day);
+        datePickerDialog.show();
+    }
+
+    private void saveManualData() {
+        String weight = inputWeight.getText().toString();
+        String vaccinationDate = inputVaccinationDate.getText().toString();
+        String healthIssues = inputHealthIssues.getText().toString();
+
+        if (weight.isEmpty() || vaccinationDate.isEmpty()) {
+            Toast.makeText(this, "Please fill in all required fields.", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        dbHelper.insertLog(new HealthLog(activityName, date, notes, false));
-        healthLogs.clear();
-        healthLogs.addAll(dbHelper.getAllLogs());
-        adapter.notifyDataSetChanged();
-
-        logActivityName.setText("");
-        logDate.setText("");
-        logNotes.setText("");
-        Toast.makeText(this, "Log saved!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Data Saved Successfully!", Toast.LENGTH_SHORT).show();
+        // Save data to the database or handle logic here
     }
 
     private void generateHealthReport() {
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("text/plain");
+        StringBuilder report = new StringBuilder();
+        report.append("Pet Health Activity Report\n\n");
 
-        StringBuilder report = new StringBuilder("Health Activity Report:\n");
-        for (HealthLog log : healthLogs) {
-            report.append("Activity: ").append(log.getActivityName())
-                    .append(", Date: ").append(log.getDate())
-                    .append(", Done: ").append(log.isDone() ? "Yes" : "No")
-                    .append("\n");
+        // Checklist Results
+        report.append("Walks Completed: ").append(checkWalks.isChecked() ? "Yes" : "No").append("\n");
+        report.append("Feeding Done: ").append(checkFeeding.isChecked() ? "Yes" : "No").append("\n");
+        report.append("Vet Visit: ").append(checkVetVisit.isChecked() ? "Yes" : "No").append("\n");
+        report.append("Medications Administered: ").append(checkMedications.isChecked() ? "Yes" : "No").append("\n");
+
+        // Manual Input Data
+        String weight = inputWeight.getText().toString();
+        String vaccinationDate = inputVaccinationDate.getText().toString();
+        String healthIssues = inputHealthIssues.getText().toString();
+
+        if (!weight.isEmpty()) {
+            report.append("Weight: ").append(weight).append(" kg\n");
         }
 
-        intent.putExtra(Intent.EXTRA_TEXT, report.toString());
-        startActivity(Intent.createChooser(intent, "Share Report"));
+        if (!vaccinationDate.isEmpty()) {
+            report.append("Vaccination Date: ").append(vaccinationDate).append("\n");
+        }
+
+        if (!healthIssues.isEmpty()) {
+            report.append("Health Issues: ").append(healthIssues).append("\n");
+        }
+
+        // Display report as a toast (you can modify this to display it in a text view or a dialog box)
+        Toast.makeText(this, report.toString(), Toast.LENGTH_LONG).show();
+
+        // You can also log it or save to a file here if needed
     }
 }
-

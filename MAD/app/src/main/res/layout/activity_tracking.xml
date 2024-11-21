@@ -1,150 +1,154 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/activity"
     tools:context=".ActivityTracking">
 
-    <!-- Header Title -->
-    <TextView
-        android:id="@+id/health_tracker_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tracking Health Activity"
-        android:fontFamily="@font/baloo_bhai"
-        android:textSize="40sp"
-        android:textStyle="bold|italic"
-        android:textColor="@color/purple_500"
-        android:shadowColor="#888"
-        android:shadowDx="2"
-        android:shadowDy="2"
-        android:shadowRadius="3" />
-
-    <!-- Subtitle -->
-    <TextView
-        android:id="@+id/health_tracker_subtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Track and manage your pet's activities and health logs"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        android:textColor="@color/gray"
-        android:layout_below="@id/health_tracker_title"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp" />
-
-    <!-- RecyclerView for Health Logs with Checkboxes -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/health_log_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_below="@id/health_tracker_subtitle"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@android:color/white" />
-
-    <!-- Add Health Log Form -->
-    <LinearLayout
-        android:id="@+id/add_health_log_form"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp"
-        android:layout_below="@id/health_log_recycler"
-        android:visibility="gone">
+        android:padding="16dp">
 
-        <EditText
-            android:id="@+id/log_activity_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Activity Name"
-            android:inputType="text" />
-
-        <EditText
-            android:id="@+id/log_date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Date (YYYY-MM-DD)"
-            android:inputType="date" />
-
-        <EditText
-            android:id="@+id/log_notes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Notes"
-            android:inputType="textMultiLine" />
-
-        <Button
-            android:id="@+id/save_health_log_btn"
+        <!-- Header Title -->
+        <TextView
+            android:id="@+id/health_tracker_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Save Log"
-            android:backgroundTint="@color/material_dynamic_primary10"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="10dp" />
-    </LinearLayout>
+            android:text="Tracking Health Activity"
+            android:fontFamily="@font/baloo_bhai"
+            android:textSize="40sp"
+            android:textStyle="bold|italic"
+            android:textColor="@color/purple_500"
+            android:shadowColor="#888"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="3"
+            android:layout_centerHorizontal="true" />
 
-    <!-- Add Health Log Button -->
-    <Button
-        android:id="@+id/add_health_log_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Health Log"
-        android:backgroundTint="@color/material_dynamic_primary10"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/add_health_log_form"
-        android:layout_marginTop="20dp" />
-
-    <!-- Manual Input Data Section -->
-    <LinearLayout
-        android:id="@+id/manual_input_form"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp"
-        android:layout_below="@id/add_health_log_btn">
-
-        <EditText
-            android:id="@+id/input_weight"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Weight (kg)"
-            android:inputType="numberDecimal" />
-
-        <EditText
-            android:id="@+id/input_vaccination_date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Vaccination Date (YYYY-MM-DD)"
-            android:inputType="date" />
-
-        <Button
-            android:id="@+id/save_manual_data_btn"
+        <!-- Subtitle -->
+        <TextView
+            android:id="@+id/health_tracker_subtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Save Data"
-            android:backgroundTint="@color/material_dynamic_primary10"
+            android:text="Track and manage your pet's activities and health logs"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/darkBrown"
+            android:layout_below="@id/health_tracker_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp" />
+
+        <!-- Checklist Section -->
+        <LinearLayout
+            android:id="@+id/checklist_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_below="@id/health_tracker_subtitle"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/transparent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Daily Task Checklist"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginBottom="8dp" />
+
+            <CheckBox
+                android:id="@+id/check_walks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Walks Completed" />
+
+            <CheckBox
+                android:id="@+id/check_feeding"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Feeding Done" />
+
+            <CheckBox
+                android:id="@+id/check_vet_visit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vet Visit Scheduled/Completed" />
+
+            <CheckBox
+                android:id="@+id/check_medications"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Medications Administered" />
+        </LinearLayout>
+
+        <!-- Manual Input Data Section -->
+        <LinearLayout
+            android:id="@+id/manual_input_form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_below="@id/checklist_section"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/transparent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Manual Input Data"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/input_weight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Weight (kg)"
+                android:inputType="numberDecimal" />
+
+            <EditText
+                android:id="@+id/input_vaccination_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Vaccination Date (YYYY-MM-DD)"
+                android:focusable="false"
+                android:clickable="true" />
+
+            <EditText
+                android:id="@+id/input_health_issues"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Health Issues (if any)"
+                android:inputType="textMultiLine" />
+
+            <Button
+                android:id="@+id/save_manual_data_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save Data"
+                android:backgroundTint="@color/purple_500"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp" />
+        </LinearLayout>
+
+        <!-- Generate Report Button -->
+        <Button
+            android:id="@+id/generate_report_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Generate Health Report"
+            android:backgroundTint="@color/purple_500"
             android:textColor="@android:color/white"
             android:textStyle="bold"
-            android:layout_gravity="center_horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/manual_input_form"
             android:layout_marginTop="10dp" />
-    </LinearLayout>
-
-    <!-- Generate Report Button -->
-    <Button
-        android:id="@+id/generate_report_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Generate Health Report"
-        android:backgroundTint="@color/material_dynamic_primary10"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/manual_input_form"
-        android:layout_marginTop="10dp" />
-</RelativeLayout>
+    </RelativeLayout>
+</ScrollView>

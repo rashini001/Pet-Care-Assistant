@@ -4,4 +4,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="purple_500">#653221</color>
     <color name="gray">#808080</color>
+    <color name="orange">#FF5722</color>
+    <color name="darkBrown">#6D4C41</color>
+    <color name="gray1">#757575</color>
+    <color name="brown">#c8b6a8</color>
+    <color name="transparent">#e6ddd7</color>
 </resources>

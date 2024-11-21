@@ -3,34 +3,22 @@ package com.example.mad;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.media.MediaPlayer;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Vibrator;
+import android.widget.Toast;
 
 public class AlarmReceiver extends BroadcastReceiver {
-
-    private static MediaPlayer mediaPlayer; // To stop alarm sound
-
     @Override
     public void onReceive(Context context, Intent intent) {
-        // Vibrate the phone
+        // Vibrate the device
         Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
-        if (vibrator != null) {
-            vibrator.vibrate(2000); // Vibrate for 2 seconds
-        }
+        if (vibrator != null) vibrator.vibrate(1000);
 
-        // Play an alarm sound
-        mediaPlayer = MediaPlayer.create(context, android.provider.Settings.System.DEFAULT_ALARM_ALERT_URI);
-        if (mediaPlayer != null) {
-            mediaPlayer.start();
-        }
-    }
+        // Play notification sound
+        Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        RingtoneManager.getRingtone(context, notification).play();
 
-    // Stop the alarm sound when the Confirm button is clicked
-    public static void stopAlarmSound() {
-        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
-            mediaPlayer.stop();
-            mediaPlayer.release();
-            mediaPlayer = null;
-        }
+        Toast.makeText(context, "Appointment Reminder!", Toast.LENGTH_LONG).show();
     }
 }

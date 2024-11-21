@@ -1,6 +1,150 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp"
+    android:background="@drawable/dashboard"
+    tools:context=".VetAppointments">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Title of the Scheduler -->
+    <TextView
+        android:id="@+id/vet_scheduler_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vet Appointment Scheduler"
+        android:fontFamily="@font/baloo_bhai"
+        android:textSize="40sp"
+        android:textStyle="bold|italic"
+        android:textColor="@color/purple_500"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:shadowColor="#888"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="3"/>
+
+    <!-- Horizontal LinearLayout for Appointment Buttons -->
+    <LinearLayout
+        android:id="@+id/appointment_buttons_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/vet_scheduler_title"
+        android:layout_marginTop="20dp"
+        android:gravity="center">
+
+        <!-- Select Appointment Time Button -->
+        <Button
+            android:id="@+id/select_appointment_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Appointment Time"
+            android:textColor="#ffffff"
+            android:backgroundTint="@color/purple_500"
+            android:layout_marginEnd="10dp"
+            android:padding="12dp"
+            android:gravity="center"/>
+
+        <!-- Add Appointment Button -->
+        <Button
+            android:id="@+id/add_appointment_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Appointment"
+            android:textColor="#ffffff"
+            android:backgroundTint="@color/purple_500"
+            android:padding="12dp"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+    <!-- Appointment Time Label -->
+    <TextView
+        android:id="@+id/appointment_time_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Appointment Time"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_below="@id/appointment_buttons_layout"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"/>
+
+    <!-- Medical Record Input -->
+    <TextView
+        android:id="@+id/medical_record_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Medical Record"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_below="@id/appointment_time_label"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"/>
+
+    <EditText
+        android:id="@+id/medical_record_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/medical_record_label"
+        android:layout_marginTop="10dp"
+        android:hint="Enter record details"
+        android:inputType="text"/>
+
+    <!-- Button to Add Medical Record -->
+    <Button
+        android:id="@+id/add_medical_record_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Medical Record"
+        android:textColor="#ffffff"
+        android:backgroundTint="@color/purple_500"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/medical_record_input"
+        android:layout_marginTop="20dp"
+        android:padding="12dp"
+        android:gravity="center"/>
+
+    <!-- Medical History Section Title -->
+    <TextView
+        android:id="@+id/medical_history_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Medical History"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_below="@id/add_medical_record_btn"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true" />
+
+    <!-- Medical History GridView -->
+    <GridView
+        android:id="@+id/medical_history_gridview"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@id/medical_history_title"
+        android:layout_marginTop="10dp"
+        android:columnWidth="100dp"
+        android:horizontalSpacing="10dp"
+        android:verticalSpacing="10dp"
+        android:stretchMode="columnWidth"
+        android:gravity="center"
+        android:numColumns="2"
+        android:scrollbars="none" />
+
+    <!-- Button for Accessing History -->
+    <Button
+        android:id="@+id/view_history_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Medical History"
+        android:textColor="#ffffff"
+        android:backgroundTint="@color/purple_500"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/medical_history_gridview"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:gravity="center"/>
+
+</RelativeLayout>

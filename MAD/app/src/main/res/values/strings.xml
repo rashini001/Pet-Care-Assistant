@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">MAD</string>
+    <string-array name="breed_array">
+        <item>Labrador</item>
+        <item>Bulldog</item>
+        <!-- Add more breeds -->
+    </string-array>
+
+    <string-array name="age_array">
+        <item>Puppy</item>
+        <item>Adult</item>
+        <item>Senior</item>
+    </string-array>
+
+    <string-array name="health_conditions_array">
+        <item>Healthy</item>
+        <item>Overweight</item>
+        <item>Arthritis</item>
+        <!-- Add more conditions -->
+    </string-array>
 </resources>
