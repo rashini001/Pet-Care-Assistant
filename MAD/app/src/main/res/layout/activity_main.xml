@@ -4,35 +4,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/main"
-    android:background="@color/brown">
+    android:background="@drawable/gradient_background">
 
-    <!-- Logo or title -->
+    <!-- App Logo or Title -->
     <TextView
         android:id="@+id/appTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="45dp"
         android:layout_centerHorizontal="true"
         android:text="WOOF"
-        android:textSize="55sp"
+        android:textSize="60sp"
         android:fontFamily="@font/baloo_bhai"
-        android:textStyle="bold|italic"
-        android:textColor="@color/purple_500"
-        android:shadowColor="#888"
-        android:shadowDx="2"
-        android:shadowDy="2"
-        android:shadowRadius="3"
-        android:layout_marginBottom="10dp" />
+        android:textStyle="bold"
+        android:textColor="#53361a"
+        android:shadowColor="#000000"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="5" />
 
-    <!-- Circular image with a frame -->
+    <!-- Circular Image with Shadow -->
     <RelativeLayout
         android:id="@+id/imageFrame"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="320dp"
+        android:layout_height="320dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/appTitle"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/circle_frame">
+        android:layout_marginTop="10dp"
+        android:elevation="10dp"
+        android:background="@drawable/circular_image_shadow">
 
         <ImageView
             android:id="@+id/petImage"
@@ -51,11 +51,15 @@
         android:layout_below="@id/imageFrame"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="TAKE A LOOK AT YOUR PET"
-        android:textSize="30sp"
+        android:text="Meet Your Best Friend"
+        android:textSize="28sp"
+        android:fontFamily="@font/baloo_bhai"
+        android:textColor="#a06932"
         android:textStyle="bold|italic"
-        android:fontFamily="sans-serif-medium"
-        android:textColor="@color/darkBrown" />
+        android:shadowColor="#000000"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="5"/>
 
     <!-- Description -->
     <TextView
@@ -63,28 +67,60 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/subtitle"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:text="Caring for your pets has never been easier! Whether you're a new pet parent or a seasoned owner, WOOF is here to make your pet care journey simple, organized, and fun. We’re committed to helping you give your furry friends the happy, healthy life they deserve. 🐶🐱❤️"
-        android:textSize="18sp"
+        android:layout_margin="10dp"
+        android:text="Shower your furry friends with love and care.! Whether you're a new pet parent or a seasoned owner, WOOF is here to make your pet care journey simple, organized, and fun. We’re committed to helping you give your furry friends the happy, healthy life they deserve. 🐶🐱🐾❤️"
+        android:textSize="20sp"
         android:fontFamily="@font/baloo_bhai"
         android:lineSpacingExtra="4dp"
         android:textAlignment="center"
-        android:textColor="@color/black" />
+        android:textColor="#a9a9a9"
+        />
 
-    <!-- Get Started button -->
+    <!-- Get Started Button -->
     <Button
         android:id="@+id/centerButton"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
+        android:layout_width="240dp"
+        android:layout_height="55dp"
         android:layout_below="@id/description"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:text="Get Started"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:backgroundTint="@color/purple_500"
-        android:textStyle="bold"/>
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:fontFamily="@font/baloo_bhai"
+        android:backgroundTint="#664320"
+        android:stateListAnimator="@android:anim/slide_in_left"
+        android:elevation="6dp" />
 
+    <!-- Footer Icons -->
+    <LinearLayout
+        android:id="@+id/footerIcons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:layout_marginBottom="25dp">
+
+        <ImageView
+            android:id="@+id/iconOne"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/paw_icon"
+            android:layout_marginEnd="85dp" />
+
+        <ImageView
+            android:id="@+id/iconTwo"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/heart_icon"
+            android:layout_marginEnd="80dp" />
+
+        <ImageView
+            android:id="@+id/iconThree"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/bone_icon"
+            android:layout_marginEnd="30dp"/>
+    </LinearLayout>
 </RelativeLayout>

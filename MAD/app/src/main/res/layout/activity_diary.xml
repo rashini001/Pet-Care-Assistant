@@ -17,7 +17,7 @@
         android:textStyle="bold|italic"
         android:textColor="@color/purple_500"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="45dp"
         android:shadowColor="#888"
         android:shadowDx="2"
         android:shadowDy="2"
@@ -49,7 +49,7 @@
         android:layout_below="@id/diary_entry_input"
         android:layout_marginTop="16dp"
         android:backgroundTint="@color/purple_500"
-        android:textColor="@android:color/white" />
+        android:textColor="@color/white" />
 
     <!-- Photo and Video Section -->
     <LinearLayout
@@ -69,7 +69,7 @@
             android:text="Add Photo"
             android:textSize="14sp"
             android:backgroundTint="@color/purple_500"
-            android:textColor="@android:color/white" />
+            android:textColor="@color/white" />
 
         <!-- Add Video Button -->
         <Button
@@ -80,7 +80,7 @@
             android:textSize="14sp"
             android:layout_marginLeft="16dp"
             android:backgroundTint="@color/purple_500"
-            android:textColor="@android:color/white" />
+            android:textColor="@color/white" />
     </LinearLayout>
 
     <!-- Logs Section -->
