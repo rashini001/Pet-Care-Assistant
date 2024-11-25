@@ -64,7 +64,7 @@ public class Dashboard extends AppCompatActivity {
         findViewById(R.id.button8).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Dashboard.this, NearbyServices.class));
+                startActivity(new Intent(Dashboard.this, SoundManager.class));
             }
         });
     }

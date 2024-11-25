@@ -131,7 +131,7 @@
         android:id="@+id/button8"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Nearby Service"
+        android:text="Voice Training"
         android:backgroundTint="@color/purple_500"
         app:layout_constraintStart_toEndOf="@id/button7"
         app:layout_constraintEnd_toEndOf="parent"
